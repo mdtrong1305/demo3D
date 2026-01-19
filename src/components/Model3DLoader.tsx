@@ -19,7 +19,7 @@ export default function Model3DLoader({
     loader.setDRACOLoader(draco);
 
     let loadedModel: THREE.Group;
-
+    // load model
     loader.load(modelPath, (gltf) => {
       loadedModel = gltf.scene;
       loadedModel.traverse((node: any) => {
@@ -33,7 +33,7 @@ export default function Model3DLoader({
       scene.add(loadedModel);
       if (onLoad) onLoad(loadedModel);
     });
-
+    // cleanup 
     return () => {
       if (loadedModel) {
         scene.remove(loadedModel);

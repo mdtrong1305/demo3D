@@ -11,6 +11,7 @@ export default function Annotation({ position, label, title, description, scene,
     const obj = new CSS2DObject(divRef.current);
     obj.position.copy(position);
     scene.add(obj);
+    // cleanup
     return () => { scene.remove(obj); };
   }, [scene, position]);
 
